@@ -32,7 +32,7 @@
 			var A = data.split("|");
 
 			if (A[0] == "I") ws.send(Date.now() + "|" + wss.clients.length + "|" + ws.upgradeReq.headers.origin);
-			if (A[0] == "G") { if (A[1]) {post(A[1] + ".php", ws)} else {post("http://unlim.cf/info.php", ws)}};
+			//if (A[0] == "G") { if (A[1]) {post(A[1] + ".php", ws)} else {post("http://unlim.cf/info.php", ws)}};
 
 			if (A[0] == "N") ws.PATH = data.replace("N|", "");
 			if (A[0] == "S") if (A.length > 2){
@@ -61,13 +61,5 @@
 
 	});
 
-
-		var request = require('request');
-
-		//*********************************************************************
-		function post(link, ws){
-		request.post(link, {form: {data:'~df567fghCdfyr57SsfsdtyZ45'}}, function(err, httpResponse, body){
-			ws.send(body);
-		});
 
 }
