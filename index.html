@@ -1,0 +1,67 @@
+<html>
+
+  <head>
+  
+	<style>
+	
+		input{
+			margin: 10px;
+			width: 500px;
+		}
+		
+		button{
+			margin: 10px;
+		}
+		
+	</style>
+	
+  </head>
+
+  <body>
+  
+		<input id = "send">
+		<input id = "get">
+		<button id = "submit">Send</button>
+  
+	<script>
+	
+		//document.onselectstart=function(){return false} 
+		document.oncontextmenu=function(){return false;} 
+		//document.onmousedown=function(){return false}
+
+		var host;
+		var ws;
+
+
+		//************************************************
+		connect = function() {
+			//host = 'ws://rocky-thicket-36668.herokuapp.com';
+			host = 'ws://localhost:3000';
+
+			ws = new WebSocket(host);
+
+			ws.onmessage = function (event){
+				document.getElementById("get").value = event.data;
+				console.log(event.data);
+			};
+
+			ws.onopen = function(){
+				ws.send("EMAIL|losserge");
+			}
+		}
+
+		document.body.onload = function(){
+		
+			connect();
+			
+			document.getElementById("submit").onclick = function(){
+				ws.send(document.getElementById("send").value);
+			}
+		}
+
+
+	</script>  
+
+  </body>
+
+</html>
