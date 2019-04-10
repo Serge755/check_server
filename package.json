@@ -2,11 +2,6 @@
   "name": "check-server",
   "version": "0.0.1",
   "description": "check server app",
-  "dependencies": {
-    "colors": "^1.1.2",
-    "express": "^4.16.2",
-	"ws":"",
-  },
   "scripts": {
     "start": "node index.js"
   }
