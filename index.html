@@ -38,7 +38,7 @@
 			//host = 'ws://rocky-thicket-36668.herokuapp.com';
 			host = 'ws://localhost:3000';
 
-			ws = new WebSocket(host);
+			ws = new WebSocket();
 
 			ws.onmessage = function (event){
 				document.getElementById("get").value = event.data;
