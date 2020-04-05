@@ -51,7 +51,9 @@
 				//console.log(("MOVE FROM " + ws.NAME + " TO " + A[1] + " : " + A[2]).warn);
 				for (var n = 0; n < wss.clients.length; n++) if (wss.clients[n].NAME == A[1]) wss.clients[n].send("MOVE|" + A[2]);
 			}
-
+			if (A[0] == "M_UP") {
+				save("12345|");
+			}
 		});
 
 		//***********************************************************************************
@@ -60,6 +62,14 @@
 		});
 
 	});
+
+	var request = require('request');
+	//***********************************************************************************
+	function save(data){
+		request.post('http://board.tk/postcard/save.php', {form: {data: data}}, function(err, httpResponse, body){
+		   //console.log(body);
+		})
+	}
 
 
 }
